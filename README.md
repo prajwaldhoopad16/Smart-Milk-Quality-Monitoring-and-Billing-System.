@@ -1,2 +1,2 @@
 # Smart-Milk-Quality-Monitoring-and-Billing-System.
-Smart dairy project using sensors, quality monitoring and automatic billing.
+Smart Milk Quality Monitoring and Billing System using sensors, ESP32, and web dashboard for dairy automation.
