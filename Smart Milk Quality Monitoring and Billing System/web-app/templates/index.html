@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initialscale=1" />
+<title>Milk Quality Billing — Multi Login</title>
+<!-- Libraries -->
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js">
+</script>
+<!-- Stylesheet -->
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="topbar">
+<div class="logo"><img id="logoImg" src="./milk img.webp.jpg" alt="Logo" />
+</div>
+<div class="brand">Milk Quality Billing</div>
+<div class="right"><div class="muted">Improved UI • Emailready</div></div>
+</div>
+<!-- LOGIN -->
+<div id="loginScreen" class="card login-wrap">
+<div class="login-card">
+<h2>Sign in</h2>
+<label>Role</label>
+<select id="roleSelect">
+<option value="admin">Admin</option>
+<option value="provider">Provider</option>
+</select>
+<label>Username / Provider name</label>
+<input id="loginUser" placeholder="admin or provider name" />
+<label>Password</label>
+<input id="loginPass" type="password" placeholder="password"/>
+<button id="loginBtn" class="primary">Sign in</button>
+<p id="loginMsg" class="muted"></p>
+</div>
+</div>
+<!-- APP -->
+<div id="app" class="wrap" style="display:none">
+<div class="left-col">
+<!-- Add Milk Record -->
+<div id="adminSection" class="card">
+<h2>Add Milk Record</h2>
+<label>Provider Name</label>
+<input id="providerName" placeholder="Enter provider name"/>
+<label>Milk Quality</label>
+<select id="quality">
+<option value="Excellent">Excellent - ₹70/L</option>
+<option value="Good">Good - ₹60/L</option>
+<option value="Average">Average - ₹50/L</option>
+<option value="Poor">Poor - ₹40/L</option>
+</select>
+<div class="row-gap">
+<button id="fetchESPBtn" class="small">Fetch from
+ESP8266</button>
+<button id="markRejectBtn" class="small small-danger">Mark
+Reject</button>
+</div>
+<label>Quantity (Litres)</label>
+<input id="quantity" type="number" min="0" step="0.1" />
+<div class="row-gap">
+<button id="saveBtn" class="primary">Save Record & Send Email</button>
+<button id="saveLocalBtn">Save Local Only</button>
+</div>
+<p id="message" class="muted"></p>
+</div>
+<!-- Records Table -->
+<div class="card" style="margin-top:12px">
+<h2>Milk Records</h2>
+<table id="recordsTable">
+<thead>
+<tr><th>Date</th><th>Provider</th><th>Quality</th>
+<th>Rate</th><th>Qty</th><th>Total</th><th>Actions</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+<h3 id="balance">Total Balance: ₹0</h3>
+<h3 id="provBalance" style="display:none">Your Balance:₹0</h3>
+<div class="row-gap" id="exportBtns">
+<button id="downloadCSVBtn">CSV</button>
+<button id="downloadXLSXBtn">Excel</button>
+<button id="downloadPDFBtn">PDF</button>
+</div>
+</div>
+<!-- Monthly Progress (replaces Chart.js) -->
+<div class="card" style="margin-top:12px">
+<h2>Monthly Progress</h2>
+<div id="monthlyProgress" class="monthly-progress"></div>
+</div>
+</div>
+<div class="right-col">
+<!-- Admin settings -->
+<div id="adminSettings" class="card">
+<h2>Admin Settings</h2>
+<label>Add Provider</label>
+<input id="newProvName" placeholder="Provider Name" />
+<input id="newProvPass" placeholder="Password" />
+<input id="newProvEmail" placeholder="Email" />
+<div class="row-gap">
+<button id="addProviderBtn" class="primary">Add Provider</button>
+<button id="sendWelcomeBtn" class="primary dark">Add + Email</button>
+</div>
+<h3 style="margin-top:12px">Providers</h3>
+<ul id="provList" class="list-reset"></ul>
+<h3 style="margin-top:12px">Deduct Balance</h3>
+<input id="deductProv" placeholder="Provider Name" />
+<input id="deductAmt" type="number" placeholder="Amount"/>
+<button id="deductBtn">Deduct</button>
+</div>
+<!-- Developer card always last -->
+<footer class="card developer-footer">
+<div class="dev-card">
+<img id="devPhoto" src="devphoto.jpg" alt="dev" />
+<div class="dev-meta">
+<strong>team alpha</strong>
+<small>mujammil@example.com</small>
+<small>Instagram: @yourhandle • LinkedIn:yourlink</small>
+<small>2025</small>
+</div>
+</div>
+<div class="muted">Made with ❤️ by team alpha</div>
+</footer>
+</div>
+</div>
+<div id="rejectBanner" class="reject-banner" style="display:none">POOR QUALITY — ATTENTION</div>
+<!-- Script -->
+<script src="script.js"></script>
+</body>
+</html>

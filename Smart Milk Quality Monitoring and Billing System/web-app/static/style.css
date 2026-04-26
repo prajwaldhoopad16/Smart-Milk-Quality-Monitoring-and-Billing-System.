@@ -1,0 +1,100 @@
+:root {
+--accent: #00796b;
+--accent-dark: #004d40;
+--bg: #f0f8f8;
+--card: #ffffff;
+--danger: #b00020;
+--muted: #6b7280;
+}
+*{box-sizing:border-box;}
+body{
+font-family:Inter,system-ui,-apple-system,"SegoeUI",Roboto,"Helvetica Neue",
+Arial;
+margin:0; min-height:100vh; background:var(--bg)
+url('yourbg.jpg') no-repeat center center/cover; color:#222;
+display:flex; flex-direction:column;
+}
+/* ...rest of CSS same as original... */
+:root{
+--accent: #00796b;
+--accent-dark: #004d40;
+--bg: #f0f8f8;
+--card: #ffffff;
+--danger: #b00020;
+--muted: #6b7280;
+}
+/* Reset / base */
+*{ box-sizing: border-box; }
+body{
+font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,"Helvetica Neue", Arial;
+margin: 0; min-height: 100vh;
+background: var(--bg) url('yourbg.jpg') no-repeat center center /cover;
+color: #222; display:flex; flex-direction:column;
+}
+/* Topbar */
+.topbar{
+display:flex; align-items:center; gap:12px; padding:10px 18px;
+background: linear-gradient(90deg, var(--accent), var(--accentdark));
+color:#fff;}
+.logo{ width:56px; height:56px; border-radius:10px;
+overflow:hidden; background:#fff; display:flex; align-items:center;
+justify-content:center; }
+.logo img{ 
+width:100%; height:100%; object-fit:cover;}
+.brand{ font-weight:800; font-size:18px; letter-spacing:0.2px; }
+.topbar .right{ margin-left:auto; display:flex; gap:8px; align-items:center; }
+/* Layout */
+.wrap{ max-width:1120px; margin:18px auto; padding:12px;width:100%; display:grid; grid-template-columns:1fr 360px;gap:18px; }
+.card{ background:var(--card); border-radius:12px; padding:14px;
+box-shadow:0 6px 20px rgba(14,20,20,0.06); }
+h1,h2,h3{ margin:0 0 8px 0; }
+label{ display:block; margin-top:10px; font-weight:600; }
+input, select, textarea, button{ width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #e4e7ea; }
+button{ cursor:pointer; }
+.primary{ background:var(--accent); color:#fff; border:none; font-weight:700; }
+.primary.dark{ background:#00695c; }
+.small{ padding:8px; border-radius:8px; font-weight:700; }
+.small-danger{ padding:8px; border-radius:8px; font-weight:700;background:#d32f2f; color:#fff; border:none; }
+.row-gap{ display:flex; gap:8px; margin-top:8px; }
+/* Login */
+.login-wrap{ display:flex; justify-content:center; align-items:center;
+padding:32px; }
+.login-card{ width:380px; animation: floatIn 0.6s cubicbezier(.2,.9,.2,1); }
+@keyframes floatIn{ from{ transform:translateY(20px) scale(.98);
+opacity:0; } to{ transform:translateY(0) scale(1); opacity:1; } }
+/* Table */
+table{ width:100%; border-collapse:collapse; margin-top:12px; }
+th,td{ padding:8px; border-bottom:1px solid #f1f1f1; text-align:center; }
+th{ background:#fafafa; font-weight:700; }
+/* Developer card */
+.developer-footer{ margin-top:auto; }
+.dev-card{ display:flex; gap:12px; align-items:center; }
+.dev-card img{ width:56px; height:56px; border-radius:50%; object-fit:cover; box-shadow:0 6px 14px rgba(0,0,0,0.08); }
+.dev-meta small{ display:block; color:var(--muted); font-size:13px; }
+/* Utilities */
+.muted{ color:var(--muted); font-size:13px; }
+.list-reset{ list-style:none; padding-left:0; margin:0; }
+/* Poor quality theme */
+body.poor-theme{ background: linear-gradient(180deg, #ffecea,
+#fff); }
+body.poor-theme .topbar{ background: linear-gradient(90deg,#d32f2f, #b71c1c); }
+.reject-banner{
+position:fixed; left:12px; bottom:12px;
+background:#fff; border:2px solid var(--danger); color:var(--danger);
+padding:8px 12px; border-radius:8px; font-weight:800;
+box-shadow:0 8px 26px rgba(160,20,20,0.12);
+}
+/* Responsive */
+@media (max-width:980px){ .wrap{ grid-template-columns:1fr; }
+.brand{ font-size:16px; } .login-card{ width:100%; } }
+/* Rejected record row */
+.reject-row{ background:#ffe5e5 !important; color:#b00020!important; font-weight:bold; }
+/* Monthly progress bar styles */
+.monthly-progress{ padding:6px 4px; max-height:260px;overflow:auto; }
+.progress-row{ display:flex; align-items:center; gap:8px;margin:8px 0; }
+.progress-label{ width:120px; font-weight:600; font-size:14px; }
+.progress-wrap{ flex:1; }
+.progress-bar{ background:#f1f5f4; border-radius:10px;height:18px; width:100%; overflow:hidden; }
+.progress-fill{ height:100%; width:0; background:var(--accent);border-radius:10px 0 0 10px; transition: width 600ms ease; }
+.progress-num{ width:110px; text-align:right; font-weight:700; font-size:13px; }
+.progress-fill.negative{ background:#d32f2f; }
